@@ -1,0 +1,32 @@
+{
+  "number_of_clusters": 4,
+  "features": [
+    "returns",
+    "trade_volume",
+    "portfolio_value",
+    "vix_level",
+    "rolling_volatility_30",
+    "turnover_rate",
+    "vix_sensitivity",
+    "allocation_entropy"
+  ],
+  "feature_engineering": {
+    "emea":[
+    "returns",
+    "vix_level",
+    "rolling_volatility_30"
+    ],
+    "momentum": [
+    "returns",
+    "vix_level",
+    "rolling_volatility_30"
+    ]
+  },
+  "preprocessing": {
+    "missing_value_handling":  ["returns", "vix_level", "rolling_volatility_30"],
+    "outlier_treatment": ["returns", "trade_volume", "turnover_rate"],
+    "scaling":  ["returns", "vix_level", "rolling_volatility_30"],
+    "encoding":[],
+    "dimensionality_reduction":  ["turnover_rate", "vix_sensitivity", "allocation_entropy"]
+  }
+}

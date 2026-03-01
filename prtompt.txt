@@ -1,0 +1,99 @@
+prompt 
+
+Design and implement a complete Multi-Agent MPC (Model Predictive / Modular Process Control) project for dynamic client clustering.
+The system must be modular, scalable, and production-oriented. Clearly define the architecture, agent responsibilities, data flow, evaluation methodology, and improvement loop.
+Build a dynamic client clustering system that adapts over time and evaluates cluster stability week-over-week.
+System Architecture
+I - Agent 1 – Request Interpreter & Feature Engineer
+•	Input: A natural language clustering request (e.g., “Show me clients sensitive to volatility”).
+•	Responsibilities:
+o	Interpret business intent.
+o	Map the request to relevant database features.
+o	Propose engineered features (aggregations, rolling metrics, normalization, volatility measures, behavioral indicators, etc.).
+o	Justify feature selection from both statistical and business perspectives.
+o	Define preprocessing steps (scaling, encoding, missing value handling).
+Deliverables:
+•	Selected features list
+•	Feature engineering logic
+•	Data transformation pipeline
+2 - Clustering Engine
+•	Propose and justify a primary clustering model suitable for dynamic financial/behavioral data.
+•	Implement the model.
+•	Propose at least two alternative clustering approaches and explain when they would outperform the primary model.
+Consider:
+•	K-Means (baseline)
+•	Gaussian Mixture Models (soft clustering)
+•	DBSCAN / HDBSCAN (density-based)
+•	Spectral clustering
+•	Hierarchical clustering
+•	Time-aware clustering (if appropriate)
+Deliverables:
+•	Model selection rationale
+•	Hyperparameter strategy
+•	Cluster number selection method (Elbow, Silhouette, BIC, etc.)
+•	Computational considerations
+3 - Quantitative Evaluation & Stability Module
+This module must evaluate both cluster quality and temporal stability.
+A. Quality Metrics
+Include:
+•	Silhouette Score
+•	Davies–Bouldin Index
+•	Calinski–Harabasz Index
+•	Inertia (if applicable)
+•	Cluster separation & compactness measures
+•	Feature importance contribution (if model allows)
+Propose additional advanced measures such as:
+•	Bootstrap stability
+•	Consensus clustering score
+•	Information-theoretic metrics
+•	KL divergence across time
+B. Temporal Stability
+Loop the clustering process week-over-week and measure:
+•	Cluster drift
+•	Membership migration matrix
+•	Adjusted Rand Index (ARI) between weeks
+•	Normalized Mutual Information (NMI)
+•	Population Stability Index (PSI)
+Deliverables:
+•	Stability dashboard logic
+•	Quantitative interpretation framework
+4- Interpretation & Validation Agent
+This agent must:
+•	Translate clustering results into business insights.
+•	Provide contextual interpretation for each cluster.
+•	Evaluate cluster usefulness and actionability.
+•	Explain quality metrics in business terms.
+•	Detect weak clustering (low separation, unstable over time).
+•	Propose:
+o	Feature improvements
+o	Additional data sources
+o	Alternative modeling approaches
+o	Dimensionality reduction if needed (PCA/UMAP)
+Output:
+•	Cluster narratives
+•	Quality assessment report
+•	Improvement recommendations
+________________________________________
+5 - Behavioral Profiling Agent
+For each cluster:
+•	Provide probabilistic breakdown of categorical variables.
+•	Compute conditional probabilities.
+•	Identify dominant behaviors and risk profiles.
+•	Provide descriptive statistical summary.
+•	Generate interpretable cluster personas.
+•	Quantify uncertainty where relevant.
+Output:
+•	Cluster profiles
+•	Behavioral summaries
+•	Probability tables
+•	Actionable insights
+________________________________________
+Additional Requirements
+•	Modular Python architecture.
+•	Clear separation between agents.
+•	Reproducible pipeline.
+•	Designed for production scalability.
+•	Include pseudocode or structured implementation plan.
+•	Explicitly describe data flow between agents.
+•	Highlight assumptions.
+•	Discuss limitations.

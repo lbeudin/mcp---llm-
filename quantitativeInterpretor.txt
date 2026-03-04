@@ -1,0 +1,55 @@
+Silhouette score :
+Measures how similar a data point is to its own cluster (cohesion) compared to others (separation),ranging from -1 to +1.
+
+Interpretation Guidelines :
++0.71 to +1.0: A strong, distinct cluster structure has been found.
++0.51 to +0.70: A reasonable structure has been found.
++0.26 to +0.50: The structure is weak and could be artificial; try different cluster numbers.
+0.25: No substantial structure has been found.
+0 indicates overlapping clusters/boundaries
+Negative Values: Generally indicates that samples have been assigned to the wrong cluster.
+
+---
+davies bouldin score :
+
+It is calculated as the average similarity measure of each cluster with the cluster most similar to it.
+It appraises the "tightness" and "separation" of clusters. "tightness" refers to the proximity of data points within a cluster, while "separation" refers to the distance between distinct clusters.
+  An Index closer to zero indicates efficient clustering demonstrated by superior separation and lower dispersion.
+---
+Variance Ratio Criterion also named calinski harabasz score
+Calinski-Harabasz Index measures the between-cluster dispersion against within-cluster dispersion. A higher score signifies better-defined clusters.
+
+Evaluating the ratio for the different models with increasing k, the optimal clustering should be given by the first local maximum of the ratios
+---
+ARI	: Label consistency
+Rand Index (RI, ARI) measures the similarity between the cluster assignments by making pair-wise comparisons. A higher score signifies higher similarity.
+---
+#NMI	Information overlap
+ measures the agreement between the cluster assignments. A higher score signifies higher agreement.
+ have an upper bound of 1.
+
+ ---
+PSI : The Population Stability Index (PSI) shows how much a distribution shifts, either over time or between two samples.
+For a categorical variable, we compute the proportion of observations in each category for both datasets.
+For a continuous variable, we first discretize it into bins. In practice, deciles are often used to obtain a balanced distribution.
+The PSI then compares, bin by bin, the proportions observed in the reference dataset versus the target dataset. The final indicator aggregates these differences using a logarithmic formula
+
+PSI < 0.1: the population is stable,
+0.1 ≤ PSI < 0.25: the shift is noticeable—monitor closely,
+PSI ≥ 0.25: the shift is significant—the model may no longer be reliable.
+ ---
+#Drift score	Centroid displacement
+from tracking the descriptive statistics of the model outputs (min-max ranges, the share of predicted classes, etc.)
+to more sophisticated distribution drift detection methods, from statistical tests like Kholmogorov-Smirnov to distance metrics like Wasserstein distance
+---
+Migration Matrix : evaluates movement pattern
+showing the transition of data points between clusters across different time periods or conditions. Used to analyze how data points migrate from one cluster to another.
+we will consider 0.85 = 85% stability week on week
+below 0.85 would be a considered as instability
+---
+
+
+#Bootstrap Stability : Resample dataset | Recluster | Compute ARI vs original
+⃣#Consensus Clustering: Run multiple seeds |  Build co-occurrence matrix | Compute stability score
+#Information-Theoretic : Entropy per cluster | Mutual information |
+# ⃣ KL Divergence Across Weeks
